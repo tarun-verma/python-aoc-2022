@@ -8,7 +8,7 @@ def overlap(f) -> int:
         elf1_range = list(range(int(elf1_low), int(elf1_up)+1))
         elf2_low, elf2_up = elf2_sec.split('-')
         elf2_range = list(range(int(elf2_low), int(elf2_up)+1))
-        if (set(elf1_range).issubset(set(elf2_range))) or (set(elf2_range).issubset(set(elf1_range))):
+        if (len(set(elf1_range).intersection(set(elf2_range))) > 0) or (len(set(elf2_range).intersection(set(elf1_range))) > 0):
             total_overlaps += 1
     
     return total_overlaps
